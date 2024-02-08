@@ -1,0 +1,7 @@
+div {
+    border: 5px solid black;
+    font-size: 10px;
+    padding: 10px;
+    border-radius: 15px 40px 15px 40px;
+    background-color: grey;
+} 
