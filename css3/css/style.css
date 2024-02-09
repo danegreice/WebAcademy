@@ -1,0 +1,16 @@
+body {
+    background-image: url(../img/nebulosa.webp);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.painel {
+    width: 200px;
+    height: 500px;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    border: 5px solid orange;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
