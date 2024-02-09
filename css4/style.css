@@ -1,0 +1,33 @@
+
+div.blue {
+    width: 100px;
+    height: 200px;
+    background-color: blue;
+  }
+  
+  div.yellow {
+    width: 100px;
+    height: 150px;
+    background-color: yellow;
+    top: 8px;
+    left: 108px;
+    position: absolute;
+  }
+  
+  div.red {
+    width: 100px;
+    height: 150px;
+    background-color: red;
+    top: 8px;
+    left: 208px;
+    position: absolute;
+  }
+  
+  div.green {
+    width: 200px;
+    height: 50px;
+    background-color: green;
+    top: 158px;
+    left: 108px;
+    position: absolute;
+  }
