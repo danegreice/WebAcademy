@@ -5,12 +5,15 @@ body {
 }
 
 .painel {
-    width: 200px;
-    height: 500px;
+    width: 480px;
+    height: 900px;
     background-color: rgba(0, 0, 0, 0.75);
+    margin-top: 150px;
+    margin-left: 150px;
     color: white;
-    border: 5px solid orange;
-    padding: 5px;
-    border-radius: 5px;
+    border: 20px solid rgb(215, 165, 73);
+    font-size: 42px;
+    padding: 30px;
+    border-radius: 30px;
     text-align: center;
 }
