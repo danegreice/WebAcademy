@@ -1,0 +1,43 @@
+
+
+.container {
+    gap: 8px;
+    height: calc(100vh - 32px);
+    display: grid;
+    grid-template-areas: 
+    "div_red div_red div_blue div_blue"
+    "div_green div_purple div_purple div_purple"
+    "div_orange div_orange div_orange div_orange"
+    ;
+}
+
+.container > div.red{
+    background-color: red;
+    grid-area: div_red;
+}
+
+.container > div.blue{
+    background-color: blue;
+    grid-area: div_blue;
+}
+
+.container > div.green{
+    background-color: green;
+    grid-area: div_green;
+}
+
+.container > div.purple{
+    background-color: purple;
+    grid-area: div_purple;
+}
+
+.container > div.orange{
+    background-color: orange;
+    grid-area: div_orange;
+}
+
+.container > * {
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: white;
+  }
