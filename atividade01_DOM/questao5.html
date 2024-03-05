@@ -35,7 +35,14 @@
         let lista2 = document.querySelectorAll(".lista-itens-2 li");
 
         for (let i = 0; i < lista2.length; i++) {
-            
+            lista2[i].style.setProperty('background-color', 'orange');
+        }
+
+
+        for (let i = 0; i < lista2.length; i++) {
+            if (lista2[i].getAttribute("class") === "hot") {
+                lista2[i].setAttribute("class", "cold")
+            }
         }
 
     </script>

@@ -33,9 +33,16 @@
 
   <script>
     let lista2 = document.querySelectorAll(".lista-itens-2 li");
+    
     for (let i = 0; i < lista2.length; i++) {
       console.log(lista2[i])
     }
+
+    for (let i = 0; i < lista2.length; i++) {
+            if (lista2[i].getAttribute("class") === "hot") {
+                console.log(lista2[i]);
+            }
+        }
 
   </script>
 </body>
