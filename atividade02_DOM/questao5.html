@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>To-do</h1>
+
+    <div>
+        <p id="lista-titulo" name="lista">Lista de atividades:</p>
+    </div>
+
+    <div>
+        <input placeholder="Digite aqui o item" />
+        <button id="adicionarElemento">Adicionar</button>
+    </div>
+
+    <ul id="lista-itens">
+        <li>item a</li>
+    </ul>
+
+    <div>
+        <button id="removerElemento">Remover último item</button>
+    </div>
+    <script>
+        let lista = document.getElementById("lista-itens");
+        let input = document.getElementsByTagName("input")[0];
+        let button = document.getElementById("adicionarElemento");
+        let remove = document.getElementById("removerElemento");
+        button.addEventListener("click", (event) => {
+            if (input.value !== "") {
+                let text = document.createTextNode(input.value);
+                let elemento = document.createElement("li");
+                elemento.appendChild(text);
+                lista.appendChild(elemento);
+            }
+        });
+
+        remove.addEventListener("click", (event) => {
+            if (lista.childElementCount >= 1) {
+                lista.removeChild(lista.lastElementChild);
+            }
+        });
+    </script>
+</body>
+
+</html>
