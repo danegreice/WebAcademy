@@ -6,6 +6,14 @@ const ctx = canvas.getContext('2d');
 const width = (canvas.width = window.innerWidth);
 const height = (canvas.height = window.innerHeight);
 
+// função que converte cor hexadecimal em rgb
+
+const hexToRgb = hex =>
+  hex.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i
+             ,(m, r, g, b) => '#' + r + r + g + g + b + b)
+    .substring(1).match(/.{2}/g)
+    .map(x => parseInt(x, 16))
+
 // function to generate random number
 
 function random(min, max) {
@@ -13,13 +21,14 @@ function random(min, max) {
   return num;
 }
 
-// function to generate random color
+// pega o elemento de cor que foi selecionado na tela
 
-function randomRGB() {
-  return `rgb(${random(0, 255)},${random(0, 255)},${random(0, 255)})`;
-}
+let col =  document.getElementById("color");
 
-function Ball(x, y, velX, velY, color, size) {
+ctx.fillStyle = "blue"
+ctx.fillRect(25,25,40,40)
+
+function Square(x, y, velX, velY, color, size) {
     this.x = x;
     this.y = y;
     this.velX = velX;
@@ -28,14 +37,14 @@ function Ball(x, y, velX, velY, color, size) {
     this.size = size;
   }
 
-Ball.prototype.draw = function () {
+Square.prototype.draw = function () {
     ctx.beginPath();
     ctx.fillStyle = this.color;
-    ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+    ctx.fillRect(this.x, this.y, this.size, this.size);
     ctx.fill();
 };
 
-Ball.prototype.update = function () {
+Square.prototype.update = function () {
     if (this.x + this.size >= width) {
       this.velX = -this.velX;
     }
@@ -56,21 +65,23 @@ Ball.prototype.update = function () {
     this.y += this.velY;
   };
 
-  Ball.prototype.collisionDetect = function () {
-    for (let j = 0; j < balls.length; j++) {
-      if (!(this === balls[j])) {
-        const dx = this.x - balls[j].x;
-        const dy = this.y - balls[j].y;
+  Square.prototype.collisionDetect = function () {
+    for (let j = 0; j < squares.length; j++) {
+      if (!(this === squares[j])) {
+        const dx = this.x - squares[j].x;
+        const dy = this.y - squares[j].y;
         const distance = Math.sqrt(dx * dx + dy * dy);
   
-        if (distance < this.size + balls[j].size) {
-          balls[j].color = this.color =
+        if (distance < this.size + squares[j].size) {
+          squares[j].color = this.color =
             "rgb(" +
-            random(0, 255) +
+            hexToRgb(col.value)[0] +
             "," +
-            random(0, 255) +
+            hexToRgb(col.value)[1] +
             "," +
-            random(0, 255) +
+            hexToRgb(col.value)[2] +
+            "," +
+            Math.random() +
             ")";
         }
       }
@@ -78,38 +89,39 @@ Ball.prototype.update = function () {
   };
   
 
-  let balls = [];
+  let squares = [];
 
-  while (balls.length < 25) {
-    let size = random(10, 20);
-    let ball = new Ball(
-      // ball position always drawn at least one ball width
+  while (squares.length < 25) {
+    let size = random(30, 40);
+    let square = new Square(
       // away from the edge of the canvas, to avoid drawing errors
       random(0 + size, width - size),
       random(0 + size, height - size),
       random(-7, 7),
       random(-7, 7),
       "rgb(" +
-        random(0, 255) +
-        "," +
-        random(0, 255) +
-        "," +
-        random(0, 255) +
-        ")",
+      hexToRgb(col.value)[0] +
+      "," +
+      hexToRgb(col.value)[1]+
+      "," +
+      hexToRgb(col.value)[2]+
+      "," +
+      Math.random() +
+      ")",
       size,
     );
   
-    balls.push(ball);
+    squares.push(square);
   }
 
   function loop() {
     ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
     ctx.fillRect(0, 0, width, height);
   
-    for (let i = 0; i < balls.length; i++) {
-      balls[i].draw();
-      balls[i].update();
-      balls[i].collisionDetect();
+    for (let i = 0; i < squares.length; i++) {
+      squares[i].draw();
+      squares[i].update();
+      squares[i].collisionDetect();
     }
   
     requestAnimationFrame(loop);
