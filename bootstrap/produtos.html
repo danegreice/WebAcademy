@@ -32,65 +32,66 @@
     <!-- navbar -->
 
     <!-- gerenciar produtos -->
-    <h4>Gerenciar produtos</h4>
-    <div style="text-align: right;">
-      <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#cadastrarProduto">Novo produto</button>
+    <div class="container">
+      <h5>Gerenciar produtos:</h5>
+      <div style="text-align: right;">
+        <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#cadastrarProduto">Novo produto</button>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Produto</th>
+            <th scope="col">Preço</th>
+            <th scope="col">Estoque</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <th>Bicileta</th>
+            <th>R$ 1.000,00</th>
+            <th>110</th>
+            <th>
+              <button class="btn btn-secondary" type="button">Editar</button>
+              <button class="btn btn-secondary" type="button">Excluir</button>
+            </th>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <th>Echo dot</th>
+            <th>R$ 600,00</th>
+            <th>8</th>
+            <th>
+              <button class="btn btn-secondary" type="button">Editar</button>
+              <button class="btn btn-secondary" type="button">Excluir</button>
+            </th>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <th>Celular</th>
+            <th>R$ 1.500,00</th>
+            <th>10</th>
+            <th>
+              <button class="btn btn-secondary" type="button">Editar</button>
+              <button class="btn btn-secondary" type="button">Excluir</button>
+            </th>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <th>Umidificador</th>
+            <th>R$ 100,00</th>
+            <th class="text-danger">0</th>
+            <th>
+              <button class="btn btn-secondary" type="button">Editar</button>
+              <button class="btn btn-secondary" type="button">Excluir</button>
+            </th>
+          </tr>
+        </tbody>
+  
+      </table>
     </div>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">id</th>
-          <th scope="col">Produto</th>
-          <th scope="col">Preço</th>
-          <th scope="col">Estoque</th>
-          <th scope="col">Ações</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <th>Bicileta</th>
-          <th>R$ 1.000,00</th>
-          <th>110</th>
-          <th>
-            <button class="btn btn-outline-secondary" type="button">Editar</button>
-            <button class="btn btn-outline-secondary" type="button">Excluir</button>
-          </th>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <th>Echo dot</th>
-          <th>R$ 600,00</th>
-          <th>8</th>
-          <th>
-            <button class="btn btn-outline-secondary" type="button">Editar</button>
-            <button class="btn btn-outline-secondary" type="button">Excluir</button>
-          </th>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <th>Celular</th>
-          <th>R$ 1.500,00</th>
-          <th>10</th>
-          <th>
-            <button class="btn btn-outline-secondary" type="button">Editar</button>
-            <button class="btn btn-outline-secondary" type="button">Excluir</button>
-          </th>
-        </tr>
-        <tr>
-          <th scope="row">4</th>
-          <th>Umidificador</th>
-          <th>R$ 100,00</th>
-          <th style="color: red;">0</th>
-          <th>
-            <button class="btn btn-outline-secondary" type="button">Editar</button>
-            <button class="btn btn-outline-secondary" type="button">Excluir</button>
-          </th>
-        </tr>
-      </tbody>
-
-    </table>
-
     <!-- gerenciar produtos -->
 
     <!-- modal cadastrar produtos -->
@@ -102,7 +103,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form>
+            <form name="form" method="post">
               <div>
                 <label for="produto" class="form-label">Produto</label>
                 <input type="text" class="form-control form-control-lg" name="produto" id="produto" required>
@@ -115,10 +116,10 @@
                 <label for="estoque" class="form-label">Estoque</label>
                 <input type="number" class="form-control form-control-lg" name="estoque" id="estoque" required>
               </div>
+              <div class="mt-3">
+                <button type="submit" class="btn btn-success w-100">Confirmar cadastro</button>
+              </div>
             </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-success w-100">Confirmar cadastro</button>
           </div>
         </div>
       </div>
