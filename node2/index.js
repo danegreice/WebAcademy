@@ -1,9 +1,9 @@
-const http = require("http");
-const fs = require("fs");
+import http from "http";
+import fs from "fs";
 
-const utils = require("./utils")
+import  {createLink} from "./utils/index.js";
+import dotenv from "dotenv";
 
-const dotenv = require("dotenv");
 dotenv.config({ path: `.env.${process.env.NODE_ENV}`});
 
 const PORT = process.env.PORT ?? 9999
@@ -15,7 +15,7 @@ const server = http.createServer((req, res) => {
         else {
             if (req.url === "/"){
                 files.forEach(file => {
-                    res.write(utils.createLink(file));
+                    res.write(createLink(file));
                 })
                 res.end();
             } else { 
