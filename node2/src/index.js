@@ -1,7 +1,7 @@
 import http from "http";
 import fs from "fs";
 
-import  {createLink} from "./utils/index.js";
+import  {createLink} from "../utils/index.js";
 import dotenv from "dotenv";
 
 dotenv.config({ path: `.env.${process.env.NODE_ENV}`});
