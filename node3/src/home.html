@@ -5,21 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lorem Ipsum</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        #container {
+            text-align: center;
+            background-color: bisque;
+        }
+
+        #button {
+            margin-left: 3px;
+            border-radius: 8px;
+            padding: 5px;
+            font-size: 15px;
+        }
+
+        #paragrafos {
+            width: 5em;
+        }
+    </style>
 </head>
 
-<body>
-    <div id="container">
-        <div>
-            <h2>GERADOR DE LOREM IPSUM!</h2>
-        </div>
-        <div>
-            <label for="qtd">Parágrafos: </label>
-            <input type="number" name="qtd" id="qtd" min="1">
-            <button id="button" type="button">Gerar</button>
-        </div>
-    </div>
-    <script type="text/javascript" src="main.js"></script>
+<body id="container">
+    <h1>Gerar parágrafos Lorem Ipsum!</h1>
+    <form action="" method="get">
+        <label for="paragrafos">Parágrafos: </label>
+        <input type="text" name="paragrafos" id="paragrafos">
+        <input type="submit" value="Enviar" id="button">
+    </form>
+    <div>{{lorem}}</div>
 </body>
 
 </html>

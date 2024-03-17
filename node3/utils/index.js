@@ -18,5 +18,3 @@ export function createParagrafos(qtd) {
     }
     return html;
 }
-
-module.exports = {createParagrafos}
