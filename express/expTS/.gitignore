@@ -1,0 +1,11 @@
+node_modules
+package-lock.json
+*.log
+*.gz
+
+!build
+build/*
+
+.nyc_output
+coverage
+
