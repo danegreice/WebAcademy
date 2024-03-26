@@ -7,6 +7,13 @@ router.get("/", (req, res) => {
     res.send("hello world");
 })
 
+router.get("/hb1", (req, res) => {
+    res.render("hb1", {
+        mensagem: "Testando o handlebars",
+        layout: false,
+    });
+})
+
 router.post("/", (req, res) => {
     res.send({nome: "Daniele", id: 1});
 })
