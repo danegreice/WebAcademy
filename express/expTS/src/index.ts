@@ -1,4 +1,4 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 import dotenv from 'dotenv';
 import envalidEnv from './utils/envalidEnv';
 import logger from './middlewares/logger';
@@ -12,6 +12,7 @@ envalidEnv();
 const app = express();
 const PORT = process.env.PORT || 3333;
 
+app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(logger("completo"));
 
@@ -31,7 +32,10 @@ app.use(sass({
 
 app.use("/html", express.static(`${__dirname}/../public/html`));
 app.use("/css", express.static(`${__dirname}/../public/css`));
-app.use("/js", express.static(`${__dirname}/../public/js`));
+app.use("/js", [
+  express.static(`${__dirname}/../public/js`),
+  express.static(`${__dirname}/../node_modules/bootstrap/dist/js`)
+]);
 app.use("/img", express.static(`${__dirname}/../public/img`));
 
 app.use(router);

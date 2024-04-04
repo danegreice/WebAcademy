@@ -1,0 +1,37 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.create = void 0;
+let lembretes = [];
+let id = 0;
+function create(lem) {
+    let linhaLembrete = document.createElement("tr");
+    let celulaTitulo = document.createElement("th");
+    let celulaDataHora = document.createElement("th");
+    let celulaDataLimite = document.createElement("th");
+    let celulaMEnsagem = document.createElement("th");
+    let celulaOpcoes = document.createElement("th");
+    let btnExcluir = document.createElement("button");
+    let btnEditar = document.createElement("button");
+    btnEditar.textContent = "Editar";
+    btnExcluir.textContent = "Excluir";
+    btnEditar.className = "editar btn btn-secondary";
+    btnExcluir.className = "excluir btn btn-secondary";
+    let date = new Date();
+    celulaTitulo.textContent = lem[1];
+    celulaDataHora.textContent = (("0" + date.getDate()).slice(-2)) + "/" + (("0" + (date.getMonth() + 1)).slice(-2)) + "/" + date.getFullYear() + "-" + date.getHours() + ":" + (("0" + date.getMinutes()).slice(-2));
+    celulaDataLimite.textContent = lem[2];
+    celulaMEnsagem.textContent = lem[3];
+    celulaOpcoes.appendChild(btnEditar);
+    celulaOpcoes.appendChild(btnExcluir);
+    let table = document.querySelectorAll("#tabelaLembretes")[0].querySelectorAll("tbody");
+    linhaLembrete.appendChild(celulaTitulo);
+    linhaLembrete.appendChild(celulaDataHora);
+    linhaLembrete.appendChild(celulaDataLimite);
+    linhaLembrete.appendChild(celulaMEnsagem);
+    linhaLembrete.appendChild(celulaOpcoes);
+    table[0].appendChild(linhaLembrete);
+    lembretes.push(lem);
+    console.log(lembretes);
+    return true;
+}
+exports.create = create;

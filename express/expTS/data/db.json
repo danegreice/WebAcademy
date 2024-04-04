@@ -1,0 +1,46 @@
+{
+  "produtos": [
+    {
+      "id": "1",
+      "nome": "Celular Xiaomi Redmi Note 13 pro",
+      "preco": 2000,
+      "estoque": 100
+    },
+    {
+      "id": "2",
+      "nome": "Tablet Samsung Tab",
+      "preco": 350,
+      "estoque": 70
+    },
+    {
+      "id": "d763",
+      "nome": "Ar-condicionado Inverter Samsung",
+      "preco": "3000",
+      "estoque": "12"
+    },
+    {
+      "id": "80f7",
+      "nome": "Televisão Philco",
+      "preco": "2500",
+      "estoque": "25"
+    },
+    {
+      "id": "5712",
+      "nome": "Geladeira inverter Samsung",
+      "preco": "3000",
+      "estoque": "30"
+    },
+    {
+      "nome": "Produto 2",
+      "preco": "100",
+      "estoque": "5",
+      "id": "b087"
+    },
+    {
+      "id": "e4d4",
+      "nome": "Produto exemplo Z",
+      "preco": "250",
+      "estoque": "25"
+    }
+  ]
+}

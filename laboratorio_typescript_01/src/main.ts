@@ -1,10 +1,23 @@
-let username = 'Dave'
-console.log(username)
+import {create} from "./functions";
 
-let a: number = 12
-let b: string = '6'
-let c: number = 2
+type lembrete = [number, string, string, string];
+let id: number = 0;
 
-console.log(a / b)
+document.querySelector("#btnSalvar")!.addEventListener("click", (e) => {
+    //e.preventDefault();
 
-console.log(c * b)
+    let titulo = document.querySelectorAll<HTMLInputElement>("#titulo");
+    let dataLimite = document.querySelectorAll<HTMLInputElement>("#dataLimite");
+    let mensagem = document.querySelectorAll<HTMLInputElement>("#msg");
+    
+    let lembrete: lembrete = [id++, titulo[0].value, dataLimite[0].value, mensagem[0].value];
+
+    console.log(create(lembrete));
+
+    
+})
+
+document.querySelector("#editar")?.addEventListener("click", (e) => {
+    console.log(e);
+})
+

@@ -21,6 +21,27 @@ const hb1 = (req: Request, res: Response) => {
     });
 };
 
+const hb2 = (req: Request, res: Response) => {
+    res.render("main/hb2", {
+        poweredByNodejs: true,
+        name: "Express",
+        type: "Framework",
+    });
+};
+
+const hb3 = (req: Request, res: Response) => {
+    const profes = [
+        {nome: 'David Fernandes', sala: 1238},
+        {nome: 'Horácio Fernandes', sala: 1233},
+        {nome: 'Edleno Moura', sala: 1236},
+        {nome: 'Tayana Conte', sala: 1231}
+    ]
+    res.render("main/hb3", {
+        profes,
+    });
+};
+
+
 const hb4 = (req: Request, res: Response) => {
     const technologies = [
         { nome: 'Express', type: 'Framework', poweredByNodejs: true },
@@ -34,4 +55,4 @@ const hb4 = (req: Request, res: Response) => {
     res.render('main/hb4', { technologies });
 }
 
-export default {hb1, index, hb4, bemvindo, lorem};
+export default {hb1, hb2, hb3, index, hb4, bemvindo, lorem};
