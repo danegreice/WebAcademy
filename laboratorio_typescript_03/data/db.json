@@ -1,0 +1,32 @@
+{
+  "produtos": [
+    {
+      "id": "3357",
+      "modelo": "Xiaomi Redmi 13C",
+      "memoria": "64gb",
+      "fabricante": "Xiaomi",
+      "valor": "1500"
+    },
+    {
+      "id": "c109",
+      "modelo": "Xiaomi Redmi 9C",
+      "memoria": "128gb",
+      "fabricante": "Xiaomi",
+      "valor": "2000"
+    },
+    {
+      "id": "d709",
+      "modelo": "Samsung A3",
+      "memoria": "32gb",
+      "fabricante": "Samsung",
+      "valor": "1200"
+    },
+    {
+      "id": "dd6a",
+      "modelo": "Motorola G54",
+      "memoria": "256gb",
+      "fabricante": "Motorola",
+      "valor": "1900"
+    }
+  ]
+}

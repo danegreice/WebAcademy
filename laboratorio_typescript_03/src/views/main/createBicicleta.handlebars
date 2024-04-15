@@ -1,0 +1,47 @@
+<h3 class="container">Adicionar Bicicleta</h3>
+
+<form action="/create" method="post" class="container">
+  <div>
+    <label for="modelo" class="form-label">Modelo</label>
+    <input
+      type="text"
+      class="form-control form-control-lg"
+      name="modelo"
+      id="modelo"
+      required
+    />
+  </div>
+  <div>
+    <label for="aro" class="form-label">Tamanho do aro</label>
+    <input
+      type="text"
+      class="form-control form-control-lg"
+      name="aro"
+      id="aro"
+      required
+    />
+  </div>
+  <div>
+    <label for="fabricante" class="form-label">Fabricante</label>
+    <input
+      type="text"
+      class="form-control form-control-lg"
+      name="fabricante"
+      id="fabricante"
+      required
+    />
+  </div>
+  <div>
+    <label for="valor" class="form-label">Valor</label>
+    <input
+      type="number"
+      class="form-control form-control-lg"
+      name="valor"
+      id="valor"
+      required
+    />
+  </div>
+  <div class="mt-3">
+    <button type="submit" class="btn btn-success w-100">Cadastrar</button>
+  </div>
+</form>
