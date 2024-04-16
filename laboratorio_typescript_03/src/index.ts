@@ -80,11 +80,9 @@ app.get("/bicicleta/create", async (req: Request, res: Response) => {
 
 app.post("/create", async (req: Request, res: Response) => {
   let produto: (TV | Celular | Bicicleta)[] = req.body;
+  const carrinho = new CarrinhoCompras();
   try {
-    await fetch(`${process.env.URL_DB}/produtos`, {
-      method: "POST",
-      body: JSON.stringify(produto),
-    });
+    carrinho.add(produto);
     res.redirect("/");
   } catch (err) {
     console.log(err);

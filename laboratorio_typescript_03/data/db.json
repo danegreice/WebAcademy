@@ -15,18 +15,19 @@
       "valor": "2000"
     },
     {
-      "id": "d709",
-      "modelo": "Samsung A3",
-      "memoria": "32gb",
-      "fabricante": "Samsung",
-      "valor": "1200"
+      "id": "3a3b",
+      "modelo": "Bicicleta azul comercial",
+      "aro": "17",
+      "fabricante": "Caloi",
+      "valor": "1500"
     },
     {
-      "id": "dd6a",
-      "modelo": "Motorola G54",
-      "memoria": "256gb",
-      "fabricante": "Motorola",
-      "valor": "1900"
+      "id": "6ed5",
+      "modelo": "Philco Smart",
+      "resolucao": "1400",
+      "polegadas": "32",
+      "fabricante": "Philco",
+      "valor": "2000"
     }
   ]
 }
