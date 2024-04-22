@@ -1,0 +1,64 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Cliente {
+  cpf             String            @id
+  email           String
+  nome            String
+  celular         String
+  compras         Compra[]
+  ClienteEndereco ClienteEndereco[]
+}
+
+model Produto {
+  codigo       Int            @id
+  preco        Decimal
+  fabricante   String
+  qtdEstoque   Int
+  categoria    String
+  subcategoria String
+  compras      Compra[]
+  ModelProduto ModelProduto[]
+}
+
+model Compra {
+  dataHora        DateTime
+  forma_pagamento String
+  desconto        Decimal
+  cpfCliente      String
+  codigoProduto   Int
+  produto         Produto  @relation(fields: [codigoProduto], references: [codigo])
+  cliente         Cliente  @relation(fields: [cpfCliente], references: [cpf])
+
+  @@id([cpfCliente, codigoProduto, dataHora])
+}
+
+model ClienteEndereco {
+  cpfCliente String
+  cep        String
+  numero     Int
+  cliente    Cliente @relation(fields: [cpfCliente], references: [cpf])
+
+  @@id([cpfCliente, cep])
+}
+
+model ModelProduto {
+  codigoProduto Int
+  numeroSerie   String
+
+  produto Produto @relation(fields: [codigoProduto], references: [codigo])
+
+  @@id([codigoProduto, numeroSerie])
+}

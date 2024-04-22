@@ -8,25 +8,11 @@
       "valor": "1500"
     },
     {
-      "id": "c109",
-      "modelo": "Xiaomi Redmi 9C",
-      "memoria": "128gb",
-      "fabricante": "Xiaomi",
-      "valor": "2000"
-    },
-    {
-      "id": "3a3b",
-      "modelo": "Bicicleta azul comercial",
-      "aro": "17",
-      "fabricante": "Caloi",
-      "valor": "1500"
-    },
-    {
-      "id": "6ed5",
-      "modelo": "Philco Smart",
+      "id": "c0fc",
+      "modelo": "Smart TV",
       "resolucao": "1400",
-      "polegadas": "32",
-      "fabricante": "Philco",
+      "polegadas": "50",
+      "fabricante": "Samsung",
       "valor": "2000"
     }
   ]
