@@ -1,4 +1,4 @@
-version: "3"
+version: "3.8"
 
 services:
   backend:
@@ -6,19 +6,21 @@ services:
     build:
       context: ./backend
     volumes:
-      - ./backend:/app
+      - ./backend/log:/app/log
     ports:
       - 4444:4444
+    networks:
+      - biblioteca
     depends_on:
       - db
   frontend:
     container_name: frontend_biblioteca
     build:
       context: ./frontend
-    volumes:
-      - ./frontend:/app
     ports:
       - 8000:80
+    networks:
+      - biblioteca
   db:
     container_name: db_biblioteca
     image: mysql:latest
@@ -30,8 +32,8 @@ services:
       - MYSQL_DATABASE=biblioteca
       - MYSQL_ROOT_PASSWORD=senha123
     networks:
-      - mysql_phpmyadmin
-  pqpmyadmin:
+      - biblioteca
+  phpmyadmin:
     image: phpmyadmin:latest
     container_name: bdgui_biblioteca
     ports:
@@ -42,11 +44,11 @@ services:
       - PMA_USER=root
       - PMA_PASSWORD=senha123
     networks:
-      - mysql_phpmyadmin
+      - biblioteca
     depends_on:
       - db
 networks:
-  mysql_phpmyadmin:
+  biblioteca:
     driver: bridge
 volumes:
   mysql_data:
