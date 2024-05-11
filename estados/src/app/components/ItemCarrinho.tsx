@@ -16,8 +16,11 @@ export default function ItemCarrinho({
     <tr key={item.id}>
       <td>{item.nome}</td>
       <td>R$ {item.preco.toFixed(2)}</td>
-      <td>{item.quantidade}</td>
-
+      <td>
+        <button className="btn btn-secondary btn-sm me-2">-</button>
+        {item.quantidade}
+        <button className="btn btn-secondary btn-sm ms-2">+</button>
+      </td>
       <td>R$ {valorTotalProduto(item.preco, item.quantidade).toFixed(2)}</td>
       <td>
         <button
