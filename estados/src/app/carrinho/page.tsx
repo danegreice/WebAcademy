@@ -4,25 +4,30 @@ import ResumoCarrinho from "../components/ResumoCarrinho";
 import ListagemCarrinho from "../components/ListagemCarrinho";
 import { mockItensCarrinho } from "../mocks/itensCarrinho";
 
-export default function Carrinho() {
-  const [itens, setItens] = React.useState<ItemCarrinho[]>(mockItensCarrinho);
-  //const [itens, dispatch] = useReducer(reducer, mockItensCarrinho);
-
-  function reducer(state: State, action: Action): State {
-    switch (action.type) {
-      case "aumentar_qtd":
-        const index = state.itens.findIndex((item) => item.id === action.id);
-        state.itens[index].quantidade += 1;
-        return { ...state, itens: state.itens };
-      case "diminuir_qtd":
-        const ind = state.itens.findIndex((item) => item.id === action.id);
-        state.itens[ind].quantidade -= 1;
-        return { ...state, itens: state.itens };
-      case "remover":
-      default:
-        throw new Error();
-    }
+function reducer(state: State, action: Action): State {
+  const index = state.itens.findIndex((item) => item.id === action.id);
+  switch (action.type) {
+    case "aumentar_qtd":
+      console.log(state.itens[index].quantidade);
+      state.itens[index].quantidade++;
+      console.log(state.itens[index].quantidade);
+      return { ...state, itens: state.itens };
+    case "diminuir_qtd":
+      state.itens[index].quantidade--;
+      return { ...state, itens: state.itens };
+    case "remover":
+      console.log("passei aqui");
+      return {
+        ...state,
+        itens: state.itens.filter((item) => item.id !== action.id),
+      };
+    default:
+      throw new Error();
   }
+}
+
+export default function Carrinho() {
+  const [state, dispatch] = useReducer(reducer, { itens: mockItensCarrinho });
 
   const totalValor = (itens: ItemCarrinho[]) => {
     let valor = 0;
@@ -32,25 +37,14 @@ export default function Carrinho() {
     return valor;
   };
 
-  const removerItemDoCarrinho = (id: string) => {
-    const index = itens.findIndex((item) => item.id === id);
-    itens.splice(index, 1);
-    setItens(itens);
-    console.log(itens);
-
-    //VER O QUE ESTÁ ACONTECENDO AQUI
-  };
   return (
     <>
       <main>
         <div className="container p-5">
-          <ListagemCarrinho
-            itens={itens}
-            removerItemDoCarrinho={removerItemDoCarrinho}
-          />
+          <ListagemCarrinho itens={state.itens} dispatch={dispatch} />
           <ResumoCarrinho
-            totalItens={itens.length}
-            totalValor={totalValor(itens)}
+            totalItens={state.itens.length}
+            totalValor={totalValor(state.itens)}
           />
         </div>
       </main>

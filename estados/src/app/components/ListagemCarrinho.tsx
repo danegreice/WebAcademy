@@ -2,12 +2,12 @@ import ItemCarrinho from "./ItemCarrinho";
 
 interface IListagemCarrinho {
   itens: ItemCarrinho[];
-  removerItemDoCarrinho: (id: string) => void;
+  dispatch: React.Dispatch<Action>;
 }
 
 export default function ListagemCarrinho({
   itens,
-  removerItemDoCarrinho,
+  dispatch,
 }: IListagemCarrinho) {
   return (
     <div className="card mb-4">
@@ -26,11 +26,7 @@ export default function ListagemCarrinho({
             </thead>
             <tbody>
               {itens.map((item) => (
-                <ItemCarrinho
-                  key={item.id}
-                  item={item}
-                  removerItemDoCarrinho={removerItemDoCarrinho}
-                />
+                <ItemCarrinho key={item.id} item={item} dispatch={dispatch} />
               ))}
             </tbody>
           </table>
