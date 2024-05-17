@@ -7,7 +7,8 @@ const nextConfig = {
                 hostname: "ranekapi.origamid.dev"
             }
         ]
-    }
+    },
+    reactStrictMode: false,
 };
 
 export default nextConfig;

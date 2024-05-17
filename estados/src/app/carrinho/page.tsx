@@ -5,18 +5,32 @@ import ListagemCarrinho from "../components/ListagemCarrinho";
 import { mockItensCarrinho } from "../mocks/itensCarrinho";
 
 function reducer(state: State, action: Action): State {
-  const index = state.itens.findIndex((item) => item.id === action.id);
   switch (action.type) {
     case "aumentar_qtd":
-      console.log(state.itens[index].quantidade);
-      state.itens[index].quantidade++;
-      console.log(state.itens[index].quantidade);
-      return { ...state, itens: state.itens };
+      return {
+        ...state,
+        itens: state.itens.map((item) => {
+          if (item.id === action.id) {
+            item.quantidade += 1;
+            return item;
+          } else {
+            return item;
+          }
+        }),
+      };
     case "diminuir_qtd":
-      state.itens[index].quantidade--;
-      return { ...state, itens: state.itens };
+      return {
+        ...state,
+        itens: state.itens.map((item) => {
+          if (item.id === action.id) {
+            item.quantidade -= 1;
+            return item;
+          } else {
+            return item;
+          }
+        }),
+      };
     case "remover":
-      console.log("passei aqui");
       return {
         ...state,
         itens: state.itens.filter((item) => item.id !== action.id),
